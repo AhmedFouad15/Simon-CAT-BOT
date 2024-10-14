@@ -17,13 +17,13 @@ def fetch_and_filter_posts(api, users, keywords,Simon_CAT_keywords, min_follower
     posts = [] 
     # Fetch from specific Influencers 
     for user in users: 
-        user_posts = api.user_timeline(screen_name=user, count=50)
+        user_posts = api.user_timeline(screen_name=user)
         for post in user_posts: 
             if any(keyword in post.text for keyword in keywords): 
                 posts.append(post) 
 
     # Search for general posts 
-    search_posts = api.search_tweets(q=" ".join(Simon_CAT_keywords), result_type="recent", count=100) 
+    search_posts = api.search_tweets(q=" ".join(Simon_CAT_keywords), result_type="recent") 
 
     for post in search_posts['statuses']: 
         if post.user.followers_count > min_followers: 
