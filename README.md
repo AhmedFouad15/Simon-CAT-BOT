@@ -5,7 +5,7 @@ Welcome to the **CAT Tweets Getter Bot**
 
 
 ## Overview
-This Code is made to get tweets from X and post it in a telegram bot and it has 2 filters, The First one get tweets from my specific user list when they use specific words like meme or memecoins and the second filter gets any posted any posted tweets from accounts with 10k and above follower that Mention any related keywords to CAT.
+This Code is made to get tweets from X and post it in a telegram group and it uses 2 filters, The First one gets tweets from any specific user list when they use specific words like meme or memecoins and the second filter gets any posted tweets from accounts with 10k and above follower that mentions any related keywords to CAT.
 
 
 ## What does it need?
