@@ -1,4 +1,5 @@
 import tweepy 
+import time
 from telegram import Bot 
  
 API_KEY = "My API KEY" 
@@ -40,17 +41,26 @@ def send_telegram_message(message):
 TELEGRAM_TOKEN = "MY Telegram Token" 
 CHAT_ID = "My Chat ID" 
 
-def main(): 
+def main():
     auth = tweepy.OAuthHandler(API_KEY, API_SECRET) 
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET) 
-    api = tweepy.API(auth) 
+    api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)  # Wait on rate limit to avoid hitting limits too quickly
 
-    # Get filtered posts 
-    filtered_posts = fetch_and_filter_posts(api, specific_users, keywords, Simon_CAT_keywords) 
+    while True:
+        try:
+            filtered_posts = fetch_and_filter_posts(api, specific_users, keywords, Simon_CAT_keywords)
+            for post in filtered_posts:
+                message = f"New post from {post.user.screen_name}: {post.text[:50]}... Read more at: {post.full_text}" 
+                send_telegram_message(message)
+            time.sleep(300)  # Wait for 5 minutes before checking again
 
-    for post in filtered_posts: 
-        message = f"New post from {post.user.screen_name}: {post.text[:50]}... Read more at: {post.full_text}" 
-        send_telegram_message(message) 
+        except tweepy.TweepError as e:
+            print(f"An error occurred: {e}")
+            time.sleep(600)  # Wait longer if an error occurs, e.g., 10 minutes
+
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            time.sleep(600)  # General error handling
 
 if __name__ == "__main__":
     main()
