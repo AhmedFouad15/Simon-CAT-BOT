@@ -25,7 +25,7 @@ This Code is made to get tweets from X and post it in a telegram group and it us
 - Change Telegram Token and Chat ID to your own one
 
 
-### - Unfortunately Didn't try it, So please review it before using it
+### Unfortunately Didn't try it, So please review it before using it
 
 
 ## **Thats All, Thanks For Reading.**
