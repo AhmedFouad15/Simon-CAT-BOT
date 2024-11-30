@@ -9,9 +9,9 @@ This Code is made to get tweets from X and post it in a telegram group and it us
 
 
 ## What does it need to run?
-1. X Developers Account (I already made an account)
-2. Subscribe to Pro Plan (After CAT Team confirmation)
-3. Make a telegram Bot through BotFather (Already Made one)
+1. X Developers Account
+2. Subscribe to Pro Plan
+3. Make a telegram Bot through BotFather
 
 
 ## How to install
@@ -23,6 +23,9 @@ This Code is made to get tweets from X and post it in a telegram group and it us
 ### 2. Paste the code in your VM 
 - Change the API Key, API Secret, Access Token, Access Token Secret to your own one which you got from X Developer Account
 - Change Telegram Token and Chat ID to your own one
+
+
+## Unfortunately Didn't try it because Team Simon Cat didn't want to make it that way
 
 
 ## **Thats All, Thanks For Reading.**
